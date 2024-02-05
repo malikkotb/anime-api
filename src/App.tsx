@@ -1,14 +1,16 @@
 import React from "react";
-import "./App.css";
 import { useQuery, gql } from "@apollo/client";
+import Grid from "./components/Grid";
+import Header from "./components/Header";
 
 const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
+  query ExampleQuery {
+    rockets {
       id
       name
-      description
-      photo
+      mass {
+        kg
+      }
     }
   }
 `;
@@ -18,13 +20,13 @@ function App() {
   if (loading) {
     return <p>Loading....</p>;
   }
-  return <div className="App">
-    
-    {data?.rockets?.map((rocket: any) => (
-      <div key={rocket.id}>{rocket.name}</div>
-    ))}
-    
-  </div>;
+
+  return (
+    <div className="">
+      <Header />
+      <Grid />
+    </div>
+  );
 }
 
 export default App;
