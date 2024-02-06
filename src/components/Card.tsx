@@ -1,30 +1,28 @@
-import React from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card } from 'antd';
+import React from "react";
+import { Avatar, Card } from "antd";
+import { Launch } from "../__generated__/graphql";
 
 const { Meta } = Card;
+export default function CardItem(launch: any) {
 
-const App: React.FC = () => (
-  <Card
-    style={{ width: 300, maxWidth: "100%" }}
-    cover={
-      <img
-        alt="example"
-        src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+  return (
+    <Card
+      style={{ width: 300, maxWidth: "100%" }}
+      cover={
+        <img
+          alt="example"
+          src={launch.links?.mission_patch_small || ""}
+        />
+      }
+    >
+      <Meta
+        avatar={
+          <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
+        }
+        title={launch.mission_name}
+        description={launch.rocket?.rocket_name}
       />
-    }
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-  >
-    <Meta
-      avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />}
-      title="Card title"
-      description="This is the description"
-    />
-  </Card>
-);
+    </Card>
+  );
+}
 
-export default App;
