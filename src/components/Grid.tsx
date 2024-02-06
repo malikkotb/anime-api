@@ -3,11 +3,16 @@ import CardItem from "./Card";
 import { useQuery } from "@apollo/client";
 import { GET_ANIME_LIST } from "../queries/queries";
 import { AnimeListQuery } from "../__generated__/graphql";
+import { Spin } from "antd";
 
 export default function Grid() {
   const { loading, data } = useQuery<AnimeListQuery>(GET_ANIME_LIST);
   if (loading) {
-    return <p>Loading....</p>;
+    return (
+      <div style={{ display: "flex", height: "100vh", justifyContent: "center", alignItems: "center", fontSize: "100px" }}>
+        <Spin size="large" />
+      </div>
+    );
   }
 
   return (
@@ -20,9 +25,9 @@ export default function Grid() {
         gap: "16px",
       }}
     >
-      {data?.Page?.media?.filter(Boolean).map((anime) => 
+      {data?.Page?.media?.filter(Boolean).map((anime) => (
         <CardItem key={anime?.id} anime={anime} />
-      )}
+      ))}
     </div>
   );
 }

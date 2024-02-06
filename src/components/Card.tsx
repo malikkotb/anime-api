@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "antd";
-// import { Media } from "../__generated__/graphql";
 
 const { Meta } = Card;
 export type Media = {
@@ -28,14 +27,13 @@ export type Media = {
 interface CardItemProps {
   anime: Media; // Use the Media type for the anime prop
 }
-// const CardItem: React.FC<CardItemProps> = ({ anime }) => {
-  export default function CardItem({ anime }: CardItemProps) {
+export default function CardItem({ anime }: CardItemProps) {
   return (
     <Card
       style={{ width: 250, maxWidth: "100%" }}
       cover={
         <img
-          style={{height: "300px"}}
+          style={{ height: "300px" }}
           alt={"coverImage"}
           src={anime?.coverImage?.extraLarge || ""}
         />
@@ -47,4 +45,4 @@ interface CardItemProps {
       />
     </Card>
   );
-};
+}
