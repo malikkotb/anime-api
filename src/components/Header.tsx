@@ -15,7 +15,7 @@ const AppHeader = () => {
         }}
       >
         <Title style={{ color: "white", margin: 0 }} level={2}>
-          SpaceX
+          AnimeVerse
         </Title>
       </Header>
     </Layout>

@@ -13,8 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query pastlaunchesList($limit: Int) {\n  launchesPast(limit: $limit) {\n    id\n    mission_name\n    links {\n      flickr_images\n      mission_patch_small\n    }\n    rocket {\n      rocket_name\n    }\n    launch_date_utc\n  }\n}\n": types.PastlaunchesListDocument,
-    "\n    query launchDetails($id: ID!) {\n    launch(id: $id) {\n        id\n        mission_name\n        details\n        links {\n        flickr_images\n        mission_patch\n        }\n    }\n    }\n": types.LaunchDetailsDocument,
+    "\n  query AnimeList {\n    Page {\n      media {\n        id\n        title {\n          english\n          native\n        }\n        description\n        seasonYear\n        coverImage {\n          extraLarge\n        }\n      }\n    }\n}\n": types.AnimeListDocument,
+    "\n    query AnimeDetails($id: Int) {\n      Page {\n        media(id: $id) {\n          id\n          title {\n            english\n            native\n          }\n          description\n          coverImage {\n            extraLarge\n          }\n          duration\n          averageScore\n          seasonYear\n          episodes\n          studios {\n            nodes {\n              name\n            }\n          }\n        }\n      }\n}\n": types.AnimeDetailsDocument,
 };
 
 /**
@@ -34,11 +34,11 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query pastlaunchesList($limit: Int) {\n  launchesPast(limit: $limit) {\n    id\n    mission_name\n    links {\n      flickr_images\n      mission_patch_small\n    }\n    rocket {\n      rocket_name\n    }\n    launch_date_utc\n  }\n}\n"): (typeof documents)["\n  query pastlaunchesList($limit: Int) {\n  launchesPast(limit: $limit) {\n    id\n    mission_name\n    links {\n      flickr_images\n      mission_patch_small\n    }\n    rocket {\n      rocket_name\n    }\n    launch_date_utc\n  }\n}\n"];
+export function gql(source: "\n  query AnimeList {\n    Page {\n      media {\n        id\n        title {\n          english\n          native\n        }\n        description\n        seasonYear\n        coverImage {\n          extraLarge\n        }\n      }\n    }\n}\n"): (typeof documents)["\n  query AnimeList {\n    Page {\n      media {\n        id\n        title {\n          english\n          native\n        }\n        description\n        seasonYear\n        coverImage {\n          extraLarge\n        }\n      }\n    }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    query launchDetails($id: ID!) {\n    launch(id: $id) {\n        id\n        mission_name\n        details\n        links {\n        flickr_images\n        mission_patch\n        }\n    }\n    }\n"): (typeof documents)["\n    query launchDetails($id: ID!) {\n    launch(id: $id) {\n        id\n        mission_name\n        details\n        links {\n        flickr_images\n        mission_patch\n        }\n    }\n    }\n"];
+export function gql(source: "\n    query AnimeDetails($id: Int) {\n      Page {\n        media(id: $id) {\n          id\n          title {\n            english\n            native\n          }\n          description\n          coverImage {\n            extraLarge\n          }\n          duration\n          averageScore\n          seasonYear\n          episodes\n          studios {\n            nodes {\n              name\n            }\n          }\n        }\n      }\n}\n"): (typeof documents)["\n    query AnimeDetails($id: Int) {\n      Page {\n        media(id: $id) {\n          id\n          title {\n            english\n            native\n          }\n          description\n          coverImage {\n            extraLarge\n          }\n          duration\n          averageScore\n          seasonYear\n          episodes\n          studios {\n            nodes {\n              name\n            }\n          }\n        }\n      }\n}\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

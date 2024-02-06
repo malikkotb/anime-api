@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://spacex-production.up.railway.app/",
+  uri: "https://graphql.anilist.co",
   cache: new InMemoryCache(),
 });
 

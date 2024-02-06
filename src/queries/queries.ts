@@ -1,34 +1,50 @@
 import { gql } from "../__generated__";
 
-const GET_PAST_LAUNCHES = gql(`
-  query pastlaunchesList($limit: Int) {
-  launchesPast(limit: $limit) {
-    id
-    mission_name
-    links {
-      flickr_images
-      mission_patch_small
+const GET_ANIME_LIST = gql(`
+  query AnimeList {
+    Page {
+      media {
+        id
+        title {
+          english
+          native
+        }
+        description
+        seasonYear
+        coverImage {
+          extraLarge
+        }
+      }
     }
-    rocket {
-      rocket_name
-    }
-    launch_date_utc
-  }
 }
 `);
 
-const GET_LAUNCH_DETAILS = gql(`
-    query launchDetails($id: ID!) {
-    launch(id: $id) {
-        id
-        mission_name
-        details
-        links {
-        flickr_images
-        mission_patch
+// for anime details by ID -> get studio, average rating / 100, episode duration in minutes
+const GET_ANIME_DETAILS = gql(`
+    query AnimeDetails($id: Int) {
+      Page {
+        media(id: $id) {
+          id
+          title {
+            english
+            native
+          }
+          description
+          coverImage {
+            extraLarge
+          }
+          duration
+          averageScore
+          seasonYear
+          episodes
+          studios {
+            nodes {
+              name
+            }
+          }
         }
-    }
-    }
+      }
+}
 `);
 
-export { GET_PAST_LAUNCHES, GET_LAUNCH_DETAILS };
+export { GET_ANIME_LIST, GET_ANIME_DETAILS };
