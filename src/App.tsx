@@ -6,15 +6,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<><Header /><Grid /></>} />
-        <Route path="/anime/:slug" element={<><Header /><Details /></>} />
-        // Other routes...
+        <Route path="/" element={<Grid />} />
+        <Route path="/anime/:slug" element={<Details />} />
       </Routes>
     </Router>
-    // <div>
-    //   <Header />
-    //   <Grid />
-    // </div>
   );
 }
 

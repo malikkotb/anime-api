@@ -1,4 +1,3 @@
-import React from "react";
 import { Layout, Typography } from "antd";
 
 const { Header } = Layout;
@@ -12,9 +11,10 @@ const AppHeader = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "white"
         }}
       >
-        <Title style={{ color: "white", margin: 0 }} level={2}>
+        <Title style={{ margin: 0 }} level={2}>
           AnimeVerse
         </Title>
       </Header>

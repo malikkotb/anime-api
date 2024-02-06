@@ -7,6 +7,7 @@ import {
   InMemoryCache,
   ApolloProvider,
 } from "@apollo/client";
+import AppHeader from "./components/Header";
 
 const client = new ApolloClient({
   uri: "https://graphql.anilist.co",
@@ -19,6 +20,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
+      <AppHeader />
       <App />
     </ApolloProvider>
   </React.StrictMode>
